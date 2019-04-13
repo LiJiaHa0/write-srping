@@ -10,9 +10,12 @@ import lombok.Data;
 @Data
 public class DHBeanDefinition {
 
+    //bean的类名
     private String beanClassName;
 
+    //是否懒加载
     private boolean lazyInit = false;
 
+    //IOC容器中的beanName
     private String factoryBeanName;
 }

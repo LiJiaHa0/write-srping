@@ -15,5 +15,5 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DHDefaultListableBeanFactory extends DHAbstractApplicationContext {
 
     //这是最主要的IOC容器，Map为ConcurrentHashMap类型主要为了线程安全
-    private final Map<String, DHBeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
+    protected final Map<String, DHBeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
 }

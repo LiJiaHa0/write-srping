@@ -9,7 +9,7 @@ package com.ljh.study.write.spring.context.support;
 public abstract class DHAbstractApplicationContext {
 
     //加入protected为受保护的，子类才能重写
-    protected void refresh(){
+    protected void refresh() throws Exception {
 
     }
 }
