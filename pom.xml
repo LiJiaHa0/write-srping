@@ -10,12 +10,19 @@
 
     <properties>
         <lombok.version>1.16.20</lombok.version>
+        <servlet.api.version>2.4</servlet.api.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.api.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

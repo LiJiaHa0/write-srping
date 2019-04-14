@@ -51,7 +51,7 @@ public class DHBeanDefinitionReader {
     //扫描配置文件中我们所配置的扫描的包地址
     private void doScanner(String scanPackage) {
         //转换为文件路径，实际上就是把.替换为/就OK了
-        URL url = this.getClass().getClassLoader().getResource("/" + scanPackage.replaceAll("\\.","/"));
+        URL url = this.getClass().getResource("/" + scanPackage.replaceAll("\\.","/"));
         File classPath = new File(url.getFile());
         //递归遍历这个路径下的全部目录，是以.class文件结尾的就加入List集合中，如果是路径则继续扫描
         for (File file : classPath.listFiles()) {
@@ -72,12 +72,12 @@ public class DHBeanDefinitionReader {
             for (String registerBeanClass : registerBeanClasses) {
                 //通过我们扫描到的类名反射得到class对象然后通过doCreateBeanDefinition()方法包装成DHBeanDefinition加入一个包装类集合中
                 Class<?> beanClass = Class.forName(registerBeanClass);
+                //如果扫描到的是接口，我们暂时先不做处理（spring中如果是接口则把实现类包装）
                 if(beanClass.isInterface())continue;
                 result.add(doCreateBeanDefinition(toLowerFirstCase(beanClass.getSimpleName()),beanClass.getName()));
             }
         } catch (Exception e){
-
-
+            e.printStackTrace();
         }
         return result;
     }
