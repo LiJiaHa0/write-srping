@@ -157,8 +157,8 @@ public class DHApplicationContext extends DHDefaultListableBeanFactory implement
         return instance;
     }
 
-    //获取我们扫描到的
+    //获取我们扫描到的全部Bean集合
     public String[] getBeanDefinitionNames() {
-        return this.beanDefinitionMap.keySet().toArray(new  String[this.beanDefinitionMap.size()]);
+        return this.beanDefinitionMap.keySet().toArray(new String[this.beanDefinitionMap.size()]);
     }
 }
