@@ -52,12 +52,16 @@ public class DHDispatcherServlet extends HttpServlet {
     public void doDispatch(HttpServletRequest req, HttpServletResponse resp){
         //1、通过从request中拿到URL，去匹配一个HandlerMapping
         DHHandlerMapping handler = getHandler(req);
+        if(null == handler){
+            processDispatchResult(req,resp,new DHModelAndView("404"));
+            return;
+        }
         //2、准备调用前的参数
         DHHandlerAdapter ha = getHandlerAdapter(handler);
         //3、真正的调用方法，返回ModelAndView存储了要传页面上的值，和页面模版的名称
         DHModelAndView mv = ha.handler(req, resp, handler);
 
-        //这一步才是真正的输出
+        //这一步才是真正的返回结果的输出
         processDispatchResult(req, resp, mv);
     }
 
