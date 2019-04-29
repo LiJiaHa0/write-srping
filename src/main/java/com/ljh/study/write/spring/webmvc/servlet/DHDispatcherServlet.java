@@ -46,10 +46,14 @@ public class DHDispatcherServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doDispatch(req, resp);
+        try {
+            this.doDispatch(req, resp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void doDispatch(HttpServletRequest req, HttpServletResponse resp){
+    public void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         //1、通过从request中拿到URL，去匹配一个HandlerMapping
         DHHandlerMapping handler = getHandler(req);
         if(null == handler){

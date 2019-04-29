@@ -1,4 +1,4 @@
-package com.ljh.study.write.spring.beans.factory;
+package com.ljh.study.write.spring.core;
 
 /**
  * @description: 自定义BeanFactory

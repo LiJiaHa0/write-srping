@@ -5,7 +5,7 @@ import com.ljh.study.write.spring.annotation.DHController;
 import com.ljh.study.write.spring.annotation.DHService;
 import com.ljh.study.write.spring.beans.DHBeanWrapper;
 import com.ljh.study.write.spring.beans.config.DHBeanDefinition;
-import com.ljh.study.write.spring.beans.factory.DHBeanFactory;
+import com.ljh.study.write.spring.core.DHBeanFactory;
 import com.ljh.study.write.spring.beans.support.DHBeanDefinitionReader;
 import com.ljh.study.write.spring.beans.support.DHDefaultListableBeanFactory;
 
